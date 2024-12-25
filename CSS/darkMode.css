@@ -1,0 +1,500 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --dark-color: #212121;
+    --light-color: #E8E8E8;
+    --black-color: #000;
+    --white-color: #FFF;
+    --purple-color: #8b00ff;
+    --login-bg-color: #212121bc;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    background: var(--dark-color);
+    transition: background-color .4s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+}
+
+ul li {
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--white-color);
+}
+
+.loader-container {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    background: var(--dark-color);
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    position: relative;
+    animation: rotate 1s linear infinite
+}
+
+.loader::before {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    inset: 0px;
+    border-radius: 50%;
+    border: 5px solid var(--light-color);
+    animation: prixClipFix 2s linear infinite;
+}
+
+
+
+.banners {
+    height: calc(80% - 12vh);
+    width: 100%;
+}
+
+.banners .banner-1 {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-1 img {
+    height: 100%;
+    width: 70%;
+}
+
+.product-names {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-names ul {
+    display: flex;
+    gap: 4vw;
+}
+
+.product-names ul li a {
+    padding: .8vw 2vw;
+    font-size: 1.1vw;
+    border: 2px solid var(--purple-color);
+    border-radius: 9px;
+    background: transparent;
+    cursor: pointer;
+    color: var(--light-color);
+    transition: .4s linear;
+}
+
+.product-names ul li a:hover {
+    background: var(--purple-color);
+    border: 2px solid var(--purple-color);
+    color: var(--white-color);
+}
+
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@keyframes prixClipFix {
+    0% {
+        clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0)
+    }
+
+    25% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0)
+    }
+
+    50% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%)
+    }
+
+    75% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%)
+    }
+
+    100% {
+        clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0)
+    }
+}
+
+.mode-changer {
+    height: 40px;
+    width: 40px;
+    border: 2px solid var(--black-color);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 1vw;
+    right: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* header */
+
+header {
+    height: 100%;
+    width: 100%;
+}
+
+header .navBar {
+    width: 100%;
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3vw;
+    background: var(--black-color);
+}
+
+.navBar .logo {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 2vw;
+    color: var(--purple-color);
+    cursor: pointer;
+}
+
+.navBar .options {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+.navBar .options .options-container {
+    display: flex;
+    gap: 4vw;
+}
+
+.options-container li a {
+    font-size: 1.1vw;
+    transition: .4s ease;
+}
+
+.options-container li a:hover {
+    color: var(--purple-color);
+}
+
+.menu-bar {
+    display: none;
+}
+
+.navBar .login-btn-container {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn-container .login-btn {
+    height: 2.5vw;
+    width: 8vw;
+    font-size: 1vw;
+    border: 2px solid var(--purple-color);
+    color: var(--white-color);
+    border-radius: 9px;
+    background: transparent;
+    cursor: pointer;
+    transition: .4s linear;
+}
+
+.login-btn:hover {
+    background: var(--purple-color);
+    border: 2px solid var(--purple-color);
+}
+
+.dialogue {
+    height: 100%;
+    width: 100%;
+    background: var(--login-bg-color);
+    position: fixed;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialogue .login-container {
+    height: 400px;
+    width: 370px;
+    background: var(--black-color);
+    border-radius: 10px;
+}
+
+.login-container .close-login-page {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.close-login-page img {
+    background: var(--light-color);
+    border: 2px solid var(--black-color);
+    border-radius: 50%;
+}
+
+.login-container .welcome-text {
+    height: 70px;
+    width: 100%;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--purple-color);
+}
+
+.login-container .information-section {
+    height: 220px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 20px;
+}
+
+.information-section input {
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: 2px solid var(--black-color);
+    border-radius: 10px;
+    color: var(--purple-color);
+}
+
+.information-section button {
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    outline: none;
+    border: 2px solid var(--purple-color);
+    background: transparent;
+    color: var(--purple-color);
+    border-radius: 10px;
+}
+
+.category-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem;
+}
+
+.category-title {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-card h3 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.product-card .price {
+    font-weight: bold;
+    margin-top: 0.5rem;
+}
+
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 20px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-center ul,
+.footer-right ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-center ul li,
+.footer-right ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.footer-center ul li a,
+.footer-right ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-center ul li a:hover,
+.footer-right ul li a:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 950px) {
+
+    .logo h1 {
+        font-size: 3.2vw;
+    }
+
+    .options-container li a {
+        font-size: 1.7vw;
+    }
+
+    .login-btn-container .login-btn {
+        height: 4vw;
+        width: 14vw;
+        font-size: 1.5vw;
+    }
+
+    .banner-1 img {
+        height: 60vh;
+        width: 90vw;
+    }
+
+    .product-names ul li a {
+        padding: 1vw 3vw;
+        font-size: 2.5vw;
+    }
+
+}
+
+@media (max-width: 650px) {
+    .logo h1 {
+        font-size: 4vw;
+    }
+
+    .navBar .options .options-container {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--black-color);
+        position: absolute;
+        top: 90px;
+        right: 20px;
+        width: 150px;
+        padding: 6px 20px;
+        border-radius: 8px;
+    }
+
+    .navBar .options .options-container.show {
+        display: flex;
+    }
+
+    .navBar .options {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .options .menu-bar {
+        display: block;
+        font-size: 4vw;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--light-color);
+    }
+
+    .login-btn-container .login-btn {
+        height: 6vw;
+        width: 17vw;
+        font-size: 2vw;
+    }
+
+    .banner-1 img {
+        height: 45vh;
+        width: 90vw;
+    }
+
+    .product-names ul li a {
+        padding: 1vw 4vw;
+        font-size: 3.2vw;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left,
+    .footer-center,
+    .footer-right {
+        flex: none;
+        margin-bottom: 10px;
+    }
+}
