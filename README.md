@@ -1,4 +1,4 @@
-# My Shop 🛒
+# <p align="center">My Shop 🛒</p>
 
 Welcome to **My Shop**! This project is a simple e-commerce website built with HTML, CSS, JavaScript, and React.js. The goal of this project is to create a user-friendly and interactive shopping experience.
 
